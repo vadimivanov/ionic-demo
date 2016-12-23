@@ -1,6 +1,6 @@
-angular.module('starter.controllers', [])
+angular.module('starter.main', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $state, $ionicModal, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -11,6 +11,24 @@ angular.module('starter.controllers', [])
 
   // Form data for the login modal
   $scope.loginData = {};
+  $scope.routes = [
+    {
+      title: 'Home',
+      link: 'app.home'
+    },
+    {
+      title: 'Expenses List',
+      link: 'app.expenses-list'
+    },
+    {
+      title: 'Revenue List',
+      link: 'app.revenue-list'
+    },
+    {
+      title: 'Charts',
+      link: 'app.charts'
+    }
+  ];
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -29,6 +47,10 @@ angular.module('starter.controllers', [])
     $scope.modal.show();
   };
 
+  $scope.go = function(link) {
+    $state.go(link);
+  };
+
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
@@ -41,16 +63,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+
+.controller('PlaylistCtrl', function($scope, $state, $stateParams) {
 });
