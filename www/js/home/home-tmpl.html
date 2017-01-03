@@ -1,5 +1,24 @@
 <ion-view view-title="Home">
-    <ion-content>
-        <h1>Home</h1>
+    <ion-content class="has-footer">
+        <div class="card">
+            <div class="item item-text-wrap">
+                <span>Total expenses</span><span class="item-list-right">1</span>
+            </div>
+            <div class="item item-text-wrap">
+                <span>Total revenue</span><span class="item-list-right">1</span>
+            </div>
+            <div class="item item-text-wrap">
+                <span>Total Difference</span><span class="item-list-right">1</span>
+            </div>
+        </div>
     </ion-content>
+    <ion-footer-bar align-title="center" class="bar-positive">
+        <div class="buttons" ng-click="preventMonth()">
+            <button class="button"><</button>
+        </div>
+        <h1 class="title">{{currentMonthName}}</h1>
+        <div class="buttons" ng-click="nextMonth()">
+            <button class="button">></button>
+        </div>
+    </ion-footer-bar>
 </ion-view>

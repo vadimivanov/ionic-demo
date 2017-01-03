@@ -1,5 +1,13 @@
 <ion-view view-title="AddCategories">
     <ion-content>
         <h1>Add Categories</h1>
+        <ion-list>
+            <div class="item" ion-datetime-picker date ng-model="datetimeValue">
+                {{datetimeValue| date: "yyyy-MM-dd"}}
+            </div>
+        </ion-list>
+        <button class="button button-positive" ng-click="getDate(datetimeValue)">
+            button-positive
+        </button>
     </ion-content>
 </ion-view>

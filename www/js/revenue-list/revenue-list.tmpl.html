@@ -1,6 +1,15 @@
 <ion-view view-title="RevenueList">
-    <ion-content>
+    <ion-content class="has-footer">
         <h1>Revenue List</h1>
         <button ng-click="go('app.add-categories')">Add</button>
     </ion-content>
+    <ion-footer-bar align-title="center" class="bar-positive">
+        <div class="buttons" ng-click="preventMonth()">
+            <button class="button"><</button>
+        </div>
+        <h1 class="title">{{currentMonthName}}</h1>
+        <div class="buttons" ng-click="nextMonth()">
+            <button class="button">></button>
+        </div>
+    </ion-footer-bar>
 </ion-view>

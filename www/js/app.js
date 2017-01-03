@@ -5,7 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in main.js
 angular.module('starter', [
-  'ionic',  
+  'ionic',
+  "ion-datetime-picker",
   'starter.main', 
   'starter.home', 
   'starter.expenses-list',

@@ -2,14 +2,30 @@ angular.module('starter.main', [])
 
 .controller('AppCtrl', function($scope, $state, $ionicModal, $timeout) {
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
   // Form data for the login modal
+  $scope.monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  $scope.currentMonthNumber = new Date().getMonth();
+  $scope.currentMonthName = $scope.monthNames[new Date().getMonth()];
+  
+  $scope.preventMonth = function (num) {
+    if ($scope.currentMonthNumber === 0) {
+      $scope.currentMonthNumber = 11;
+    } else {
+      $scope.currentMonthNumber -= 1;
+    }
+    $scope.currentMonthName = $scope.monthNames[$scope.currentMonthNumber];
+  };
+  $scope.nextMonth = function (num) {
+    if ($scope.currentMonthNumber === 11) {
+      $scope.currentMonthNumber = 0;
+    } else {
+      $scope.currentMonthNumber += 1;
+    }
+    $scope.currentMonthName = $scope.monthNames[$scope.currentMonthNumber];
+  };
+  
   $scope.loginData = {};
   $scope.routes = [
     {
@@ -29,7 +45,7 @@ angular.module('starter.main', [])
       link: 'app.charts'
     }
   ];
-
+  
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
