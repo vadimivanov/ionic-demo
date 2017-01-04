@@ -1,8 +1,11 @@
 angular.module('starter.main', [])
 
-.controller('AppCtrl', function($scope, $state, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $state, $ionicModal, $timeout, $firebaseObject) {
 
-  // Form data for the login modal
+  var ref = firebase.database().ref();
+  // download the data into a local object
+  $scope.data = $firebaseObject(ref);
+
   $scope.monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
   ];
@@ -29,6 +32,10 @@ angular.module('starter.main', [])
   $scope.loginData = {};
   $scope.routes = [
     {
+      title: 'Login',
+      link: 'app.login'
+    },
+    {
       title: 'Home',
       link: 'app.home'
     },
@@ -43,43 +50,22 @@ angular.module('starter.main', [])
     {
       title: 'Charts',
       link: 'app.charts'
+    },
+    {
+      title: 'Chat',
+      link: 'app.chat'
     }
   ];
-  
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
 
   $scope.go = function(link) {
     $state.go(link);
   };
 
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
+  $scope.signOut = function (num) {
+    firebase.auth().signOut().then(function(res) {
+      $state.go('app.login');
+    }, function(error) {
+      console.log('error signOut ', error);
+    });
   };
-})
-
-
-
-.controller('PlaylistCtrl', function($scope, $state, $stateParams) {
 });

@@ -1,0 +1,28 @@
+<ion-view view-title="Chat">
+    <ion-content class="has-footer">
+        <ul class="list">
+            <li class="item" ng-repeat="message in messages">
+                <span>
+                    <p>{{message.text}}</p>
+                </span>
+                <span class="item-list-right">
+                    <button class="button button-positive" ng-click="messages.$remove(message)">
+                    Delete
+                </button>
+                </span>
+            </li>
+        </ul>
+        <div class="list">
+            <form >
+                <label class="item item-input">
+                    <input type="text" placeholder="Text" ng-model="newMessageText">
+                </label>
+                <div class="padding">
+                    <button class="button button-block button-positive" ng-click="addMessage(newMessageText)">
+                        Add Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

@@ -7,12 +7,15 @@
 angular.module('starter', [
   'ionic',
   "ion-datetime-picker",
+  'firebase',
   'starter.main', 
   'starter.home', 
   'starter.expenses-list',
   'starter.revenue-list',
   'starter.add-categories',
-  'starter.charts'
+  'starter.charts',
+  'starter.chat',
+  'starter.login'
 ])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -23,7 +26,15 @@ angular.module('starter', [
         templateUrl: 'templates/menu.html',
         controller: 'AppCtrl'
       })
-
+      .state('app.login', {
+        url: '/login',
+        views: {
+          'menuContent': {
+            templateUrl: 'js/login/login.html',
+            controller: 'LoginCtrl'
+          }
+        }
+      })
       .state('app.home', {
         url: '/home',
         views: {
@@ -70,9 +81,26 @@ angular.module('starter', [
             controller: 'ChartsCtrl'
           }
         }
+      })
+      .state('app.chat', {
+        url: '/chat',
+        views: {
+          'menuContent': {
+            templateUrl: 'js/chat/chat.tmpl.html',
+            controller: 'ChatCtrl'
+          }
+        }
       });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/home');
+    
+    var checkUserToken = localStorage.getItem('firebase:authUser:AIzaSyAfg98E2I9d_eL3WaLYO6-a5SQKNLutnOU:[DEFAULT]');
+    
+    
+    if (!checkUserToken) {
+      $urlRouterProvider.otherwise('/login');
+    } else {
+      $urlRouterProvider.otherwise('/app/home');
+    }
   })
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {

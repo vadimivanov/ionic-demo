@@ -28,6 +28,22 @@
 
     <!-- libs -->
     <script src="lib/ion-datetime-picker/ion-datetime-picker.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+    <script>
+      // Initialize the Firebase SDK
+      var config = {
+        apiKey: "AIzaSyAfg98E2I9d_eL3WaLYO6-a5SQKNLutnOU",
+        authDomain: "test-app-f4172.firebaseapp.com",
+        databaseURL: "https://test-app-f4172.firebaseio.com",
+        storageBucket: "test-app-f4172.appspot.com",
+        messagingSenderId: "755694186270"
+      };
+      firebase.initializeApp(config);
+    </script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -40,6 +56,8 @@
     <script src="js/revenue-list/revenue-list.js"></script>
     <script src="js/add-categories/add-categories.js"></script>
     <script src="js/charts/charts.js"></script>
+    <script src="js/chat/chat.js"></script>
+    <script src="js/login/login.js"></script>
   </head>
 
   <body ng-app="starter">
