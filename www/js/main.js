@@ -29,11 +29,10 @@ angular.module('starter.main', [])
     $scope.currentMonthName = $scope.monthNames[$scope.currentMonthNumber];
   };
   
-  $scope.loginData = {};
   $scope.routes = [
     {
       title: 'Login',
-      link: 'app.login'
+      link: 'login'
     },
     {
       title: 'Home',
@@ -63,7 +62,7 @@ angular.module('starter.main', [])
 
   $scope.signOut = function (num) {
     firebase.auth().signOut().then(function(res) {
-      $state.go('app.login');
+      $state.go('login');
     }, function(error) {
       console.log('error signOut ', error);
     });

@@ -1,5 +1,6 @@
 angular.module('starter.login', [])
-    .controller('LoginCtrl', function($scope, $state, $firebaseObject) {
+    .controller('LoginCtrl', function($scope, $state) {
+        $scope.loginData = {};
         // Perform the login action when the user submits the login form
         $scope.doLogin = function() {
             firebase.auth().createUserWithEmailAndPassword($scope.loginData.email, $scope.loginData.password).then(function(response) {

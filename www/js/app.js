@@ -26,14 +26,10 @@ angular.module('starter', [
         templateUrl: 'templates/menu.html',
         controller: 'AppCtrl'
       })
-      .state('app.login', {
+      .state('login', {
         url: '/login',
-        views: {
-          'menuContent': {
-            templateUrl: 'js/login/login.html',
-            controller: 'LoginCtrl'
-          }
-        }
+        templateUrl: 'js/login/login.html',
+        controller: 'LoginCtrl'
       })
       .state('app.home', {
         url: '/home',
@@ -94,8 +90,7 @@ angular.module('starter', [
     // if none of the above states are matched, use this as the fallback
     
     var checkUserToken = localStorage.getItem('firebase:authUser:AIzaSyAfg98E2I9d_eL3WaLYO6-a5SQKNLutnOU:[DEFAULT]');
-    
-    
+
     if (!checkUserToken) {
       $urlRouterProvider.otherwise('/login');
     } else {
