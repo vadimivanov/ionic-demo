@@ -2,9 +2,18 @@
     <ion-content>
         <h1>Add Categories</h1>
         <ion-list>
-            <div class="item" ion-datetime-picker date ng-model="datetimeValue">
-                {{datetimeValue| date: "yyyy-MM-dd"}}
-            </div>
+            <label class="item item-input">
+                <!--<div class="" ion-datetime-picker date ng-model="datetimeValue">-->
+                    <!--{{datetimeValue| date: "yyyy-MM-dd"}}-->
+                <!--</div>-->
+                <input type="text" placeholder="date" ion-datetime-picker date ng-model="categoryData.datetimeValue" value="{{categoryData.datetimeValue| date: 'yyyy-MM-dd'}}">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="category" ng-model="categoryData.category">
+            </label>
+            <label class="item item-input">
+                <input type="number" placeholder="value" ng-model="categoryData.value">
+            </label>
         </ion-list>
         <button class="button button-positive" ng-click="getDate(datetimeValue)">
             button-positive

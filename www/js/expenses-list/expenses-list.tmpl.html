@@ -2,6 +2,17 @@
     <ion-content class="has-footer">
         <h1>Expenses List</h1>
         <button ng-click="go('app.add-categories')">Add</button>
+        <ul class="list">
+            <li class="item" ng-repeat="item in expensesList">
+                <span>
+                    <p>{{item.category}}</p>
+                    <p>{{item.datetimeValue}}</p>
+                </span>
+                <span class="item-list-right">
+                    <p>{{item.value}}</p>
+                </span>
+            </li>
+        </ul>
     </ion-content>
     <ion-footer-bar align-title="center" class="bar-positive">
         <div class="buttons" ng-click="preventMonth()">

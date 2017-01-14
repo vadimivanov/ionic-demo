@@ -1,6 +1,14 @@
 <ion-view view-title="Charts">
     <ion-content class="has-footer">
         <h1>Charts</h1>
+        <div class="card">
+            <div class="item item-divider">
+                A line chart
+            </div>
+            <div class="item item-text-wrap">
+                <canvas id="line" class="chart chart-line" data="data" labels="labels" legend="true" series="series" options="{showTooltips: false}"></canvas>
+            </div>
+        </div>
     </ion-content>
     <ion-footer-bar align-title="center" class="bar-positive">
         <div class="buttons" ng-click="preventMonth()">

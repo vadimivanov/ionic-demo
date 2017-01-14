@@ -6,6 +6,8 @@
 // 'starter.controllers' is found in main.js
 angular.module('starter', [
   'ionic',
+  'starter.countingService',
+  'starter.storagesServices',
   "ion-datetime-picker",
   'firebase',
   'starter.main', 
@@ -91,11 +93,11 @@ angular.module('starter', [
     
     var checkUserToken = localStorage.getItem('firebase:authUser:AIzaSyAfg98E2I9d_eL3WaLYO6-a5SQKNLutnOU:[DEFAULT]');
 
-    if (!checkUserToken) {
-      $urlRouterProvider.otherwise('/login');
-    } else {
+    // if (!checkUserToken) {
+    //   $urlRouterProvider.otherwise('/login');
+    // } else {
       $urlRouterProvider.otherwise('/app/home');
-    }
+    // }
   })
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {

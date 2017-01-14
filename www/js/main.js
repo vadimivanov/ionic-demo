@@ -30,10 +30,10 @@ angular.module('starter.main', [])
   };
   
   $scope.routes = [
-    {
-      title: 'Login',
-      link: 'login'
-    },
+    // {
+    //   title: 'Login',
+    //   link: 'login'
+    // },
     {
       title: 'Home',
       link: 'app.home'
@@ -49,10 +49,10 @@ angular.module('starter.main', [])
     {
       title: 'Charts',
       link: 'app.charts'
-    },
-    {
-      title: 'Chat',
-      link: 'app.chat'
+    // },
+    // {
+    //   title: 'Chat',
+    //   link: 'app.chat'
     }
   ];
 
