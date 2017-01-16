@@ -1,6 +1,6 @@
 angular.module('starter.main', [])
 
-.controller('AppCtrl', function($scope, $state, $ionicModal, $timeout, $firebaseObject) {
+.controller('AppCtrl', function($scope, $state, $ionicModal, $timeout, $firebaseObject, CountingService, PubSub) {
 
   var ref = firebase.database().ref();
   // download the data into a local object
@@ -18,6 +18,9 @@ angular.module('starter.main', [])
     } else {
       $scope.currentMonthNumber -= 1;
     }
+    CountingService.setCurrentMonth($scope.currentMonthNumber);
+    CountingService.getPrevMonth($scope.currentMonthNumber);
+    PubSub.publish('changeMonth', {load: true});
     $scope.currentMonthName = $scope.monthNames[$scope.currentMonthNumber];
   };
   $scope.nextMonth = function (num) {
@@ -26,6 +29,9 @@ angular.module('starter.main', [])
     } else {
       $scope.currentMonthNumber += 1;
     }
+    CountingService.setCurrentMonth($scope.currentMonthNumber);
+    CountingService.getPrevMonth($scope.currentMonthNumber);
+    PubSub.publish('changeMonth', {load: true});
     $scope.currentMonthName = $scope.monthNames[$scope.currentMonthNumber];
   };
   
@@ -55,7 +61,7 @@ angular.module('starter.main', [])
     //   link: 'app.chat'
     }
   ];
-
+  console.log('angularPubsub ', PubSub);
   $scope.go = function(link) {
     $state.go(link);
   };

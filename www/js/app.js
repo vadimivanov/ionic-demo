@@ -10,14 +10,15 @@ angular.module('starter', [
   'starter.storagesServices',
   "ion-datetime-picker",
   'firebase',
-  'starter.main', 
-  'starter.home', 
+  'starter.main',
+  'starter.home',
   'starter.expenses-list',
   'starter.revenue-list',
   'starter.add-categories',
   'starter.charts',
   'starter.chat',
-  'starter.login'
+  'starter.login',
+  'PubSub'
 ])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -34,6 +35,7 @@ angular.module('starter', [
         controller: 'LoginCtrl'
       })
       .state('app.home', {
+        cache: false,
         url: '/home',
         views: {
           'menuContent': {
@@ -44,6 +46,7 @@ angular.module('starter', [
       })
 
       .state('app.expenses-list', {
+        cache: false,
         url: '/expenses-list',
         views: {
           'menuContent': {
@@ -53,6 +56,7 @@ angular.module('starter', [
         }
       })
       .state('app.revenue-list', {
+        cache: false,
         url: '/revenue-list',
         views: {
           'menuContent': {

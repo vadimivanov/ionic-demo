@@ -1,7 +1,6 @@
 angular.module('starter.storagesServices', [])
 
     .factory('StoragesServices', function() {
-        var test = 'it is StoragesServices';
         return {
             get: function(storageName) {
                 var loadData = JSON.parse(localStorage.getItem(storageName));
@@ -11,6 +10,7 @@ angular.module('starter.storagesServices', [])
                 if (localStorage.getItem(storageName)) {
                     var load = localStorage.getItem(storageName);
                     var parseLoad = JSON.parse(load);
+                    console.log('StoragesServices --> ', parseLoad, arr);
                         parseLoad.push(arr[0]);
                     localStorage.setItem(storageName, JSON.stringify(parseLoad));
                 } else {
