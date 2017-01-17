@@ -3,7 +3,7 @@ angular.module('starter.revenue-list', [])
         
         $scope.loadList = function() {
             $scope.revenueList = CountingService.getCategory('revenue') || [];
-            console.log('$scope.expensesList --> ', $scope.expensesList);
+            console.log('$scope.revenueList --> ', $scope.revenueList);
         };
 
         $scope.go = function(link) {

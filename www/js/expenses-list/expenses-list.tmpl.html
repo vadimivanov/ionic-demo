@@ -6,7 +6,9 @@
             <li class="item" ng-repeat="item in expensesList">
                 <span>
                     <p>{{item.category}}</p>
-                    <p>{{item.datetimeValue}}</p>
+                </span>
+                <span>
+                    <p>{{item.datetimeValue | date:'yyyy-MM-dd'}}</p>
                 </span>
                 <span class="item-list-right">
                     <p>{{item.value}}</p>
