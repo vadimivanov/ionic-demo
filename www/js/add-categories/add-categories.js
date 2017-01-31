@@ -1,5 +1,5 @@
 angular.module('starter.add-categories', [])
-    .controller('AddCategoriesCtrl', function($scope, $stateParams, CountingService) {
+    .controller('AddCategoriesCtrl', function($scope, $state, $stateParams, CountingService) {
         $scope.categoryDataArr = [];
         $scope.categoryData = {};
         $scope.getDate = function(data, categoriesForm) {
@@ -9,4 +9,7 @@ angular.module('starter.add-categories', [])
             CountingService.setCategory($scope.categoryDataArr, $stateParams.category);
             $scope.categoryData = {};
         };
+      
+        $scope.routerWatch(false);
+      
     });

@@ -26,7 +26,7 @@ angular.module('starter', [
       .state('app', {
         url: '/app',
         abstract: true,
-        templateUrl: 'templates/menu.html',
+        templateUrl: 'templates/main.html',
         controller: 'AppCtrl'
       })
       .state('login', {
@@ -37,52 +37,33 @@ angular.module('starter', [
       .state('app.home', {
         cache: false,
         url: '/home',
-        views: {
-          'menuContent': {
-            templateUrl: 'js/home/home-tmpl.html',
-            controller: 'HomeCtrl'
-          }
-        }
+        templateUrl: 'js/home/home-tmpl.html',
+        controller: 'HomeCtrl'
       })
 
       .state('app.expenses-list', {
         cache: false,
         url: '/expenses-list',
-        views: {
-          'menuContent': {
-            templateUrl: 'js/expenses-list/expenses-list.tmpl.html',
-            controller: 'ExpensesListCtrl'
-          }
-        }
+        templateUrl: 'js/expenses-list/expenses-list.tmpl.html',
+        controller: 'ExpensesListCtrl'
       })
       .state('app.revenue-list', {
         cache: false,
         url: '/revenue-list',
-        views: {
-          'menuContent': {
-            templateUrl: 'js/revenue-list/revenue-list.tmpl.html',
-            controller: 'RevenueListCtrl'
-          }
-        }
+        templateUrl: 'js/revenue-list/revenue-list.tmpl.html',
+        controller: 'RevenueListCtrl'
       })
       .state('app.add-categories', {
+        cache: false,
         url: '/add-categories',
-        views: {
-          'menuContent': {
-            templateUrl: 'js/add-categories/add-categories.tmpl.html',
-            controller: 'AddCategoriesCtrl'
-          }
-        },
+        templateUrl: 'js/add-categories/add-categories.tmpl.html',
+        controller: 'AddCategoriesCtrl',
         params: {category: ''}
       })
       .state('app.charts', {
         url: '/charts',
-        views: {
-          'menuContent': {
-            templateUrl: 'js/charts/charts-tmpl.html',
-            controller: 'ChartsCtrl'
-          }
-        }
+        templateUrl: 'js/charts/charts-tmpl.html',
+        controller: 'ChartsCtrl'
       })
       .state('app.chat', {
         url: '/chat',

@@ -1,5 +1,7 @@
 angular.module('starter.charts', [])
-    .controller('ChartsCtrl', function($scope) {
+    .controller('ChartsCtrl', function($scope, $state) {
+        $scope.routerWatch(true);
+        
         $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
         $scope.series = ['Series A', 'Series B'];
         $scope.data = [

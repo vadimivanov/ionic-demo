@@ -1,6 +1,7 @@
 angular.module('starter.home', [])
-    .controller('HomeCtrl', function($scope, CountingService, PubSub) {
+    .controller('HomeCtrl', function($scope, $state, CountingService, PubSub) {
 
+        $scope.isFooter = true;
         $scope.loadSum = function() {
             $scope.currnetExpensesSum = CountingService.getCurrentMonthSum('expenses');
             $scope.preventExpensesSum = CountingService.getPreventMonthSum('expenses');

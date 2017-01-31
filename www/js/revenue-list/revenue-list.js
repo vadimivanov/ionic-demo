@@ -6,6 +6,8 @@ angular.module('starter.revenue-list', [])
             console.log('$scope.revenueList --> ', $scope.revenueList);
         };
 
+        $scope.routerWatch(true);
+
         $scope.go = function(link) {
             $state.go(link, {category: 'revenue'});
         };

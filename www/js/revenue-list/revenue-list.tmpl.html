@@ -1,6 +1,8 @@
 <ion-view view-title="RevenueList">
     <ion-content class="has-footer">
-        <h1>Revenue List</h1>
+        <div class="buttons " ng-click="go('app.charts')">
+            <button class="button button-positive">Charts</button>
+        </div>
         <button ng-click="go('app.add-categories')">Add</button>
         <ul class="list">
             <li class="item" ng-repeat="item in revenueList">
@@ -16,13 +18,4 @@
             </li>
         </ul>
     </ion-content>
-    <ion-footer-bar align-title="center" class="bar-positive">
-        <div class="buttons" ng-click="preventMonth()">
-            <button class="button"><</button>
-        </div>
-        <h1 class="title">{{currentMonthName}}</h1>
-        <div class="buttons" ng-click="nextMonth()">
-            <button class="button">></button>
-        </div>
-    </ion-footer-bar>
 </ion-view>

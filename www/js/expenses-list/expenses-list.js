@@ -5,7 +5,8 @@ angular.module('starter.expenses-list', [])
             $scope.expensesList = CountingService.getCategory('expenses') || [];
             console.log('$scope.expensesList --> ', $scope.expensesList);
         };
-
+        $scope.routerWatch(true);  
+      
         $scope.go = function(link) {
             $state.go(link, {category: 'expenses'});
         };

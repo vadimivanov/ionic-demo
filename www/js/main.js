@@ -1,7 +1,7 @@
 angular.module('starter.main', [])
 
 .controller('AppCtrl', function($scope, $state, $ionicModal, $timeout, $firebaseObject, CountingService, PubSub) {
-
+console.log('$state', $state);
   var ref = firebase.database().ref();
   // download the data into a local object
   $scope.data = $firebaseObject(ref);
@@ -73,4 +73,14 @@ angular.module('starter.main', [])
       console.log('error signOut ', error);
     });
   };
+
+  $scope.isFooter = true;
+  $scope.routerWatch = function (flag) {
+    $scope.isFooter = flag;
+  };
+
+  $scope.go = function(link) {
+    $state.go(link);
+  };
+  
 });

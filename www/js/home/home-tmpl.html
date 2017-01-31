@@ -1,11 +1,11 @@
 <ion-view view-title="Home">
     <ion-content class="has-footer">
         <div class="card">
-            <div class="item item-text-wrap">
+            <div class="item item-text-wrap" ng-click="go('app.expenses-list')">
                 <span>Total expenses</span><span class="item-list-right">{{currnetExpensesSum}}</span><br>
                 <span>Prevent month</span><span class="item-list-right">{{preventExpensesSum}}</span>
             </div>
-            <div class="item item-text-wrap">
+            <div class="item item-text-wrap" ng-click="go('app.revenue-list')">
                 <span>Total revenue</span><span class="item-list-right">{{currnetRevenueSum}}</span><br>
                 <span>Prevent month</span><span class="item-list-right">{{preventRevenueSum}}</span>
             </div>
